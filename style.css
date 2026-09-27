@@ -1,0 +1,123 @@
+:root {
+    --bg: #08090f;
+    --panel: #11131d;
+    --panel-soft: #171a26;
+    --line: rgba(255, 255, 255, 0.12);
+    --text: #f4f5fa;
+    --muted: #9b9eae;
+    --lime: #d5ff3f;
+    --pink: #ff3d81;
+    --blue: #4c89ff;
+    --gold: #ffbb4a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+}
+
+.page-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 1280px;
+    margin: auto;
+    padding: 54px 6%;
+}
+
+.brand-block { padding: 20px; }
+.logo-mark, .brand-mini { color: var(--lime); font-weight: 900; letter-spacing: .12em; }
+.logo-mark { font-size: 1.5rem; margin-bottom: 80px; }
+.logo-mark span, .brand-mini span { color: var(--text); }
+.eyebrow, .welcome-tag, .card-kicker {
+    margin: 0 0 16px;
+    color: var(--lime);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+.brand-block h1 { max-width: 650px; margin: 0; font-size: clamp(3.6rem, 7vw, 6.5rem); line-height: .92; letter-spacing: -.07em; }
+.accent-text { color: var(--pink); }
+.lead { max-width: 500px; margin: 28px 0; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
+.hero-pills { display: flex; gap: 10px; color: #686c7d; font-size: .68rem; font-weight: 800; letter-spacing: .1em; }
+.hero-pills span { padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; }
+.auth-panel { width: min(100%, 650px); justify-self: center; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.card { padding: 28px; background: rgba(17,19,29,.88); border: 1px solid var(--line); border-radius: 8px; }
+.card h2 { margin: 0 0 24px; font-size: 1.65rem; letter-spacing: -.04em; }
+.card-kicker { color: var(--muted); margin-bottom: 10px; }
+form { display: flex; flex-direction: column; gap: 10px; }
+label { margin-top: 5px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 5px; outline: none; color: var(--text); background: var(--panel-soft); }
+input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(213,255,63,.12); }
+button, .launch-button { border: 0; border-radius: 5px; padding: 14px 16px; margin-top: 14px; color: #10120a; background: var(--lime); font-weight: 900; cursor: pointer; }
+button:hover, .launch-button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.flash-container { margin-bottom: 18px; }
+.flash { padding: 12px 14px; border-radius: 5px; font-size: .9rem; }
+.flash.success { color: var(--lime); background: rgba(213,255,63,.1); }
+.flash.error { color: #ff7b9e; background: rgba(255,61,129,.1); }
+
+.dashboard-body { background: var(--bg); }
+.dashboard-container { max-width: 1180px; margin: auto; padding: 28px 24px 60px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 0 24px; border-bottom: 1px solid var(--line); }
+.brand-mini { text-decoration: none; font-size: 1rem; }
+.topbar-actions { display: flex; align-items: center; gap: 22px; }
+.online-dot, .live-count { color: var(--lime); font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+.logout-link { color: var(--muted); text-decoration: none; font-size: .85rem; }
+.dashboard-card { padding: 74px 0 0; }
+.dashboard-card h1 { margin: 0; font-size: clamp(2.3rem, 5vw, 4.4rem); letter-spacing: -.06em; }
+.dashboard-copy { margin: 16px 0 0; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 42px; max-width: 650px; }
+.stat-box { padding: 18px; border: 1px solid var(--line); background: var(--panel); }
+.stat-box span { display: block; margin-bottom: 11px; color: var(--muted); font-size: .68rem; letter-spacing: .1em; }
+.stat-box strong { font-size: 1.8rem; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin: 76px 0 20px; }
+.section-heading h2 { margin: 0; font-size: 1.7rem; letter-spacing: -.04em; }
+.game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.game-card { overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.game-art { height: 150px; display: flex; align-items: end; padding: 16px; background: linear-gradient(135deg, #35102b, var(--pink)); }
+.game-card.blue .game-art { background: linear-gradient(135deg, #091f46, var(--blue)); }
+.game-card.gold .game-art { background: linear-gradient(135deg, #43240a, var(--gold)); }
+.game-art span { color: rgba(255,255,255,.7); font-size: 3.8rem; font-weight: 900; letter-spacing: -.1em; }
+.game-info { padding: 20px; }
+.game-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+.game-info h3 { margin: 14px 0 8px; font-size: 1.35rem; }
+.game-info p { min-height: 42px; margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.play-link { display: inline-block; margin-top: 20px; color: var(--lime); text-decoration: none; font-size: .8rem; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+.game-page .game-screen { max-width: 760px; margin: 120px auto; padding: 70px; border: 1px solid var(--line); background: var(--panel); text-align: center; }
+.game-screen h1 { margin: 0; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -.08em; }
+.game-screen > p:not(.welcome-tag):not(.launch-note) { color: var(--muted); line-height: 1.7; }
+.launch-button { margin-top: 28px; padding: 16px 28px; }
+.launch-note { color: var(--muted); font-size: .75rem; }
+
+@media (max-width: 850px) {
+    .page-shell { grid-template-columns: 1fr; gap: 20px; padding-top: 30px; }
+    .logo-mark { margin-bottom: 45px; }
+}
+@media (max-width: 620px) {
+    .form-grid, .game-grid, .stats { grid-template-columns: 1fr; }
+    .brand-block h1 { font-size: 3.6rem; }
+    .dashboard-card { padding-top: 48px; }
+    .section-heading { display: block; }
+    .live-count { display: block; margin-top: 14px; }
+    .game-page .game-screen { margin: 60px auto; padding: 42px 20px; }
+}
+
