@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade One | Play beyond limits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="brand-block">
+            <div class="logo-mark">A<span>1</span></div>
+            <p class="eyebrow">The next level starts here</p>
+            <h1>Play beyond <span class="accent-text">limits.</span></h1>
+            <p class="lead">
+                Discover your next obsession, compete with the community, and make every
+                session count.
+            </p>
+            <div class="hero-pills">
+                <span>LIVE MATCHES</span>
+                <span>120K+ PLAYERS</span>
+            </div>
+        </div>
+
+        <div class="auth-panel">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-container">
+                        {% for category, message in messages %}
+                            <div class="flash {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div class="form-grid">
+                <section class="card login-card">
+                    <p class="card-kicker">WELCOME BACK</p>
+                    <h2>Enter the arena</h2>
+                    <form action="{{ url_for('login') }}" method="POST">
+                        <label for="login-email">Email</label>
+                        <input id="login-email" type="email" name="email" placeholder="Enter your email" required>
+
+                        <label for="login-password">Password</label>
+                        <input id="login-password" type="password" name="password" placeholder="Enter your password" required>
+
+                        <button type="submit">Log in <span aria-hidden="true">-&gt;</span></button>
+                    </form>
+                </section>
+
+                <section class="card signup-card">
+                    <p class="card-kicker">NEW PLAYER</p>
+                    <h2>Join the squad</h2>
+                    <form action="{{ url_for('signup') }}" method="POST">
+                        <label for="signup-name">Full Name</label>
+                        <input id="signup-name" type="text" name="name" placeholder="Your full name" required>
+
+                        <label for="signup-email">Email</label>
+                        <input id="signup-email" type="email" name="email" placeholder="Your email" required>
+
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" type="password" name="password" placeholder="Create a password" required>
+
+                        <button type="submit">Create account <span aria-hidden="true">-&gt;</span></button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
